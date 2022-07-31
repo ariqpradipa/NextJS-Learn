@@ -11,7 +11,7 @@ app.prepare().then(() => {
 
   server.get("/hallo", (req, res) => {
 
-    return res.end("masuk ke server");
+    return res.end("keluar ke server");
   });
 
   server.all('*', (req, res) => {
