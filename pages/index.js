@@ -1,8 +1,23 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Button from '@mui/material/Button';
+import axios from 'axios';
 
 export default function Home() {
+
+  const callServer = () => {
+
+    axios
+    .get("http://localhost:3000/hallo")
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -50,6 +65,7 @@ export default function Home() {
             </p>
           </a>
         </div>
+        <Button variant="contained" onClick={callServer}>Contained</Button>
       </main>
 
       <footer className={styles.footer}>
@@ -64,6 +80,7 @@ export default function Home() {
           </span>
         </a>
       </footer>
+      
     </div>
   )
 }
